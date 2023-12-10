@@ -33,4 +33,39 @@ def notify(message,title=None,subtitle=None,soundname=None):
 	os.system("osascript -e '{0}'".format(appleScriptNotification))
 
 
-def connect_mqtt() -> mqtt_clie
+def connect_mqtt() -> mqtt_client:
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print('Connected to MQTT Broker!')
+        else:
+            print(f'Failed to connect, return code {rc}\n')
+
+    client = mqtt_client.Client(client_id)
+    # client.username_pw_set(username, password)
+    client.on_connect = on_connect
+    client.connect(broker, port)
+    return client
+
+def subscribe(client: mqtt_client):
+    def on_message(client, userdata, msg):
+        topic = msg.topic
+        payload = json.loads(msg.payload.decode())
+        print(f'Received `{payload}` from `{topic}` topic')
+        if payload['action'] == 'single_left':
+            keyboard.send('k')
+            notify('Left player', soundname='Basso')
+        elif payload['action'] == 'single_right':
+            keyboard.send('k')
+            notify('Right player', soundname='Blow')
+
+    client.subscribe(topics)
+    client.on_message = on_message
+
+def run():
+    client = connect_mqtt()
+    subscribe(client)
+    client.loop_forever()
+
+
+if __name__ == '__main__':
+    run()
