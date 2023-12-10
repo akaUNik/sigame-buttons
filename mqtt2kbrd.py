@@ -10,7 +10,7 @@ topics = [
     ('zigbee2mqtt/SwitchD1', 0),
     ('zigbee2mqtt/SwitchD2', 0),
 ]
-client_id = f'sigame-buttons'
+client_id = 'sigame-buttons'
 # username = 'emqx'
 # password = 'public'
 
@@ -53,10 +53,10 @@ def subscribe(client: mqtt_client):
         print(f'Received `{payload}` from `{topic}` topic')
         if payload['action'] == 'single_left':
             keyboard.send('k')
-            notify('Left player', soundname='Basso')
+            notify('Left player', title='mqtt2kbrd', soundname='Basso')
         elif payload['action'] == 'single_right':
             keyboard.send('k')
-            notify('Right player', soundname='Blow')
+            notify('Right player', title='mqtt2kbrd', soundname='Blow')
 
     client.subscribe(topics)
     client.on_message = on_message
