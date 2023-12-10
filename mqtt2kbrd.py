@@ -1,0 +1,36 @@
+import os
+import keyboard
+import json
+from paho.mqtt import client as mqtt_client
+
+
+broker = '192.168.1.14'
+port = 1883
+topics = [
+    ('zigbee2mqtt/SwitchD1', 0),
+    ('zigbee2mqtt/SwitchD2', 0),
+]
+client_id = f'sigame-buttons'
+# username = 'emqx'
+# password = 'public'
+
+def notify(message,title=None,subtitle=None,soundname=None):
+	"""
+		Display an OSX notification with message title an subtitle
+		sounds are located in /System/Library/Sounds or ~/Library/Sounds
+	"""
+	titlePart = ''
+	if(not title is None):
+		titlePart = 'with title "{0}"'.format(title)
+	subtitlePart = ''
+	if(not subtitle is None):
+		subtitlePart = 'subtitle "{0}"'.format(subtitle)
+	soundnamePart = ''
+	if(not soundname is None):
+		soundnamePart = 'sound name "{0}"'.format(soundname)
+
+	appleScriptNotification = 'display notification "{0}" {1} {2} {3}'.format(message,titlePart,subtitlePart,soundnamePart)
+	os.system("osascript -e '{0}'".format(appleScriptNotification))
+
+
+def connect_mqtt() -> mqtt_clie
