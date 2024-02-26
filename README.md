@@ -1,19 +1,22 @@
+# Свояк-система
+
 ## Devices
-* Raspberry Pi
-* Zigbee Adapter
-* Zigbee Buttons
+* Raspberry Pi Zero W  
+* SD-card  
+* CC2531 USB stick  
+* CC debugger  
+* CC2531 downloader cable  
+* Micro-USB to USB-A (for CC2531 USB stick)  
+* Micro-USB to USB (power)  
+* U64 LED Matrix
 
-## Install zigbee2mqtt 
-https://www.zigbee2mqtt.io/guide/getting-started/  
-https://randomnerdtutorials.com/how-to-install-mosquitto-broker-on-raspberry-pi/  
-https://randomnerdtutorials.com/installing-raspbian-lite-enabling-and-connecting-with-ssh/  
+## 3D-models
+https://www.thingiverse.com/thing:731949/files
+https://jwillmer.de/blog/tools/raspberry-pi-zero-cc2531-case
 
-## Install mqtt2kbrd
-
-
-## Config
-https://support.apple.com/en-gb/guide/mac-help/mh43185/mac
-
-Choose Apple menu  > System Settings, click Privacy & Security  in the sidebar, then click Accessibility on the right. (You may need to scroll down.) Turn permission on or off for any app in the list.
-
-Turn off Focus
+## Links
+https://pahanini.com/posts/zigbee-flashing-cc2531/
+https://www.zigbee2mqtt.io/guide/adapters/flashing/flashing_the_cc2531.html
+https://mtlynch.io/key-mime-pi/
+https://github.com/MalteGruber/zigpy_standalone
+https://learn.adafruit.com/neopixels-on-raspberry-pi/python-usage
