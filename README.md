@@ -17,3 +17,9 @@ https://support.apple.com/en-gb/guide/mac-help/mh43185/mac
 Choose Apple menu  > System Settings, click Privacy & Security  in the sidebar, then click Accessibility on the right. (You may need to scroll down.) Turn permission on or off for any app in the list.
 
 Turn off Focus
+
+## Zigbee sniffer
+https://github.com/MalteGruber/zigpy_standalone
+
+## Matrix
+https://learn.adafruit.com/neopixels-on-raspberry-pi/python-usage
